@@ -29,7 +29,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v4
 
       - name: Detect package manager
         id: detect-package-manager
@@ -50,6 +58,14 @@ jobs:
           fi
         shell: bash
 
+      - name: Cache dependencies
+        uses: actions/cache@v3
+        with:
+          path: ${{ steps.detect-package-manager.outputs.manager }}-cache
+          key: ${{ runner.os }}-build-${{ steps.detect-package-manager.outputs.manager }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ steps.detect-package-manager.outputs.manager }}-
+
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.runner }} ${{ steps.detect-package-manager.outputs.command }}
 
@@ -57,7 +73,7 @@ jobs:
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v2
         with:
           path: ./out
 
