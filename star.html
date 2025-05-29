@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+/* 创建五角星样式 */
+.star {
+  width: 0;
+  height: 0;
+  margin: 50px auto;
+  /* 使用border属性创建三角形 */
+  border-right: 100px solid transparent;
+  border-bottom: 70px solid gold;
+  border-left: 100px solid transparent;
+  position: relative;
+}
+
+/* 创建星形的上半部分 */
+.star::before {
+  content: "";
+  height: 0;
+  width: 0;
+  position: absolute;
+  top: -45px;
+  left: -100px;
+  border-bottom: 80px solid gold;
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+}
+
+/* 添加阴影效果 */
+.star {
+  box-shadow: 0 0 10px gold, 0 0 20px gold;
+  transition: transform 0.3s ease;
+}
+
+/* 添加悬停动画效果 */
+.star:hover {
+  transform: scale(1.2);
+}
+</style>
+</head>
+<body>
+<!-- 星星容器 -->
+<div class="star"></div>
+</body>
+</html>
