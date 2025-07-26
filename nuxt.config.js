@@ -1,19 +1,41 @@
-import { defineNuxtConfig } from 'nuxt/config'
-export default defineNuxtConfig({
+export default {
+  // 模块配置
   modules: [
-    '@nuxt/content',
-    '@nuxtjs/tailwindcss'
+    '@nuxtjs/tailwindcss',
+    '@nuxt/content'
   ],
-  content: {
-    // https://content.nuxtjs.org/api/configuration
-    markdown: {
-      // https://content.nuxtjs.org/api/configuration#markdown
+  
+  // 内容模块配置 - 使用独立配置文件content.config.js
+  content: {},
+  
+  // 渲染模式
+  ssr: false,
+  
+  // 组件自动导入
+  components: true,
+
+  // Nitro配置
+  nitro: {
+    compatibilityDate: '2025-07-04',
+    prerender: {
+      routes: ['/markdown', '/about']
     }
   },
-  css: [
-    // 在这里添加全局 CSS 文件
-  ],
+  
+  // GitHub Pages 配置
+  app: {
+    // 根据环境设置基础URL，GitHub Pages需要使用仓库名称作为路径
+    baseURL: process.env.NODE_ENV === 'production' ? '/qiyuqingyun.github.io/' : '/',
+    buildAssetsDir: '/_nuxt/',
+    // 路由配置
+    router: {
+      options: {
+        strict: false
+      }
+    }
+  },
+  
   devtools: {
     enabled: true
   }
-})
+}
