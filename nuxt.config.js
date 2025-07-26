@@ -1,5 +1,5 @@
 export default defineNuxtConfig({
-  compatibilityDate: '2025-07-26',
+  //compatibilityDate: '2025-07-26',
   modules: [
     '@nuxt/content',
     '@nuxtjs/tailwindcss'
@@ -19,13 +19,13 @@ export default defineNuxtConfig({
   devtools: {
     enabled: true
   },
-  // 添加 router 配置以支持 GitHub Pages
-  router: {
-    base: '/'
-  },
-  // GitHub Pages 配置
+  // GitHub Pages 配置 - 使用适用于 Nuxt 3 的正确配置
   app: {
     baseURL: '/',
-    buildAssetsDir: '/_nuxt/'
+    buildAssetsDir: '/_nuxt/',
+    // 添加 router 配置
+    router: {
+      base: '/'
+    }
   }
 })
