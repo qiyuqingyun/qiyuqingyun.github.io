@@ -13,7 +13,7 @@
           发布日期: {{ formatDate(post.meta?.date) }}
         </p>
         <div class="content">
-          <MarkdownRenderer :value="post" />
+          <ContentRenderer :value="post" />
         </div>
       </article>
     </div>
