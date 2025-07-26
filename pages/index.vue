@@ -3,6 +3,10 @@
     <div class="content">
       <h1>Hello World!</h1>
       <p class="subtitle">在网格背景上移动鼠标查看粒子特效</p>
+      <!-- 新增的导航链接 -->
+      <NuxtLink to="/markdown" class="markdown-link">
+        查看Markdown内容
+      </NuxtLink>
       <div class="instructions">
         <p>这个演示展示了如何让文字与粒子特效共存：</p>
         <ul>
@@ -21,6 +25,24 @@
   </div>
 </template>
 
+<style>
+/* 在原有样式基础上添加 */
+.markdown-link {
+  display: inline-block;
+  margin-bottom: 2rem;
+  color: #ff69b4;
+  text-decoration: none;
+  border: 1px solid #ff69b4;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.markdown-link:hover {
+  background-color: #ff69b4;
+  color: #1a1a2e;
+}
+</style>
 <script>
 export default {
   mounted() {

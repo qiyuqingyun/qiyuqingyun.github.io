@@ -1,12 +1,24 @@
 export default {
-  // 确保在客户端渲染粒子效果
+  // 模块配置
+  modules: [
+    '@nuxtjs/tailwindcss',
+    '@nuxt/content'
+  ],
+  
+  // 内容模块配置 - 使用独立配置文件content.config.js
+  content: {},
+  
+  // 渲染模式
   ssr: false,
   
   // 组件自动导入
   components: true,
 
-  // 设置兼容性日期
+  // Nitro配置
   nitro: {
-    compatibilityDate: '2024-04-03'
+    compatibilityDate: '2025-07-04',
+    prerender: {
+      routes: ['/markdown', '/about']
+    }
   }
 }
