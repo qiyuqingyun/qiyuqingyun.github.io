@@ -20,25 +20,5 @@ export default {
     prerender: {
       routes: ['/markdown', '/about']
     }
-  },
-  
-  // GitHub Pages 配置
-  app: {
-    // 根据环境设置基础URL，GitHub Pages需要使用仓库名称作为路径
-    baseURL: process.env.NODE_ENV === 'production' ? '/qiyuqingyun.github.io/' : '/',
-    buildAssetsDir: '/_nuxt/',
-    // 路由配置
-    router: {
-      options: {
-        strict: false
-      }
-    }
-  },
-  
-  devtools: {
-    enabled: true
-  },
-  
-  // 添加兼容性日期
-  compatibilityDate: '2025-07-26'
+  }
 }
