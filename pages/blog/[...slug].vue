@@ -26,40 +26,53 @@
 </template>
 
 <script setup>
+import { queryCollection } from '#imports'
+
 const route = useRoute()
 const slug = route.params.slug
 
 const { data: post, pending, error } = await useAsyncData(
   `post-${Array.isArray(slug) ? slug.join('/') : slug}`,
   async () => {
-    // 使用 queryCollection 查询 content 集合并查找特定路径的文章
-    const path = Array.isArray(slug) ? slug.join('/') : slug
-    console.log('Querying path:', path) // 调试信息
-    
-    // 获取所有文章然后手动筛选
-    const allPosts = await queryCollection('content').all()
-    console.log('All posts:', allPosts) // 调试信息
-    
-    // 手动查找匹配的文章
-    const result = allPosts.find(p => {
-      // 确保 p.stem 和 path 都存在且为字符串
-      if (!p.stem || typeof p.stem !== 'string') return false
-      if (!path || typeof path !== 'string') return false
-      return p.stem === path
-    })
-    
-    console.log('Manual search result:', result) // 调试信息
-    
-    if (!result) {
-      // 使用 createError 创建正确的错误对象，避免 TypeError
-      throw createError({
-        statusCode: 404,
-        message: `页面未找到: Post not found for path: ${path || 'undefined'}`
+    try {
+      // 使用 queryCollection 查询 content 集合并查找特定路径的文章
+      const path = Array.isArray(slug) ? slug.join('/') : slug
+      console.log('Querying path:', path) // 调试信息
+      
+      // 获取所有文章然后手动筛选
+      const allPosts = await queryCollection('content').all()
+      console.log('All posts:', allPosts) // 调试信息
+      
+      // 手动查找匹配的文章
+      const result = allPosts.find(p => {
+        // 确保 p.stem 和 path 都存在且为字符串
+        if (!p.stem || typeof p.stem !== 'string') return false
+        if (!path || typeof path !== 'string') return false
+        return p.stem === path
       })
+      
+      console.log('Manual search result:', result) // 调试信息
+      
+      if (!result) {
+        // 使用 createError 创建正确的错误对象，避免 TypeError
+        throw createError({
+          statusCode: 404,
+          message: `页面未找到: Post not found for path: ${path || 'undefined'}`
+        })
+      }
+      
+      console.log('Final post data:', result) // 调试信息
+      return result
+    } catch (err) {
+      // 确保错误是通过 createError 创建的标准化错误对象
+      if (err instanceof Error && !err.statusCode) {
+        throw createError({
+          statusCode: 500,
+          message: err.message || '内部服务器错误'
+        })
+      }
+      throw err
     }
-    
-    console.log('Final post data:', result) // 调试信息
-    return result
   }
 )
 

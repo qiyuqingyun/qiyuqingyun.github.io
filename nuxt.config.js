@@ -37,5 +37,8 @@ export default {
   
   devtools: {
     enabled: true
-  }
+  },
+  
+  // 添加兼容性日期
+  compatibilityDate: '2025-07-26'
 }
