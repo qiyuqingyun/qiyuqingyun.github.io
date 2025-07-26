@@ -19,15 +19,9 @@ export default defineNuxtConfig({
   devtools: {
     enabled: true
   },
-  // 添加 router 配置以支持 GitHub Pages
-  router: {
-    options: {
-      strict: false
-    }
-  },
-  // GitHub Pages 配置
+  // 简化 GitHub Pages 配置
   app: {
-    baseURL: process.env.NODE_ENV === 'production' ? '/qiyuqingyun.github.io/' : '/',
+    baseURL: '/', // GitHub Pages 仓库根目录通常只需 "/"
     buildAssetsDir: '/_nuxt/'
   }
 })
