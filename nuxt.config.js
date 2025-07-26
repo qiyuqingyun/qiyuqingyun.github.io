@@ -1,24 +1,22 @@
-export default {
-  // 模块配置
+export default defineNuxtConfig({
+  compatibilityDate: '2025-07-26',
   modules: [
-    '@nuxtjs/tailwindcss',
-    '@nuxt/content'
+    '@nuxt/content',
+    '@nuxtjs/tailwindcss'
   ],
-  
-  // 内容模块配置 - 使用独立配置文件content.config.js
-  content: {},
-  
-  // 渲染模式
-  ssr: false,
-  
-  // 组件自动导入
-  components: true,
-
-  // Nitro配置
-  nitro: {
-    compatibilityDate: '2025-07-04',
-    prerender: {
-      routes: ['/markdown', '/about']
+  content: {
+    // https://content.nuxtjs.org/api/configuration
+    markdown: {
+      // https://content.nuxtjs.org/api/configuration#markdown
+    },
+    highlight: {
+      theme: 'github-dark'
     }
+  },
+  css: [
+    // 在这里添加全局 CSS 文件
+  ],
+  devtools: {
+    enabled: true
   }
-}
+})
