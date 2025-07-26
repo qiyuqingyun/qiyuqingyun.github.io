@@ -9,7 +9,7 @@ export default {
   content: {},
   
   // 渲染模式
-  ssr: true,
+  ssr: false,
   
   // 组件自动导入
   components: true,
