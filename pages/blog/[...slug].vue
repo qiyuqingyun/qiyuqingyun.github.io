@@ -51,8 +51,11 @@ const { data: post, pending, error } = await useAsyncData(
     console.log('Manual search result:', result) // 调试信息
     
     if (!result) {
-      // 直接抛出错误而不是使用 createError
-      throw new Error(`页面未找到: Post not found for path: ${path || 'undefined'}`)
+      // 使用 createError 创建正确的错误对象，避免 TypeError
+      throw createError({
+        statusCode: 404,
+        message: `页面未找到: Post not found for path: ${path || 'undefined'}`
+      })
     }
     
     console.log('Final post data:', result) // 调试信息
