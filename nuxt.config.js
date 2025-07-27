@@ -14,11 +14,6 @@ export default {
   // 组件自动导入
   components: true,
 
-  // 应用配置 - 添加 baseURL 以便在 GitHub Pages 上正确部署
-  app: {
-    baseURL: process.env.BASE_URL || '/qiyuqingyun.github.io/',
-  },
-
   // 路由配置 - 添加 strict: false 提高路由兼容性
   router: {
     options: {
