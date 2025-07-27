@@ -133,9 +133,32 @@ defineProps({
   font-weight: bold;
 }
 
+/* 修改图片样式 */
 .markdown-content :deep(img) {
+  /* 确保图片不会超出容器 */
   max-width: 100%;
-  border-radius: 4px;
+  /* 自动调整高度以保持比例 */
+  height: auto;
+  /* 防止行内元素间距问题 */
+  display: block;
+  /* 居中显示 */
+  margin: 1rem auto;
+  /* 移除背景颜色和内边距 */
+  background: none;
+  padding: 0;
+}
+
+.markdown-content :deep(div[style*="text-align: center;"] img) {
+  display: inline-block;
+  margin: 1rem auto;
+}
+
+.markdown-content :deep(iframe) {
+  width: 100%;
+  height: 500px;
+  border: none;
+  border-radius: 8px;
+  margin: 1rem 0;
 }
 
 @media (max-width: 768px) {
@@ -153,6 +176,10 @@ defineProps({
   
   .markdown-content :deep(h3) {
     font-size: 1.2rem;
+  }
+  
+  .markdown-content :deep(iframe) {
+    height: 300px;
   }
 }
 </style>

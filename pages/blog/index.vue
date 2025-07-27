@@ -43,7 +43,7 @@ function formatDate(dateString) {
 .blog-container {
   max-width: 800px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 2rem 0;
 }
 
 .header {
@@ -51,11 +51,13 @@ function formatDate(dateString) {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 2rem;
+  padding: 0 2rem;
 }
 
 .header h1 {
   color: #64ffda;
   font-size: 2rem;
+  margin: 0;
 }
 
 .back-link {
@@ -75,6 +77,8 @@ function formatDate(dateString) {
   border-radius: 8px;
   text-align: left;
   transition: transform 0.2s, box-shadow 0.2s;
+  margin-left: 2rem;
+  margin-right: 2rem;
 }
 
 .post-item:hover {
@@ -105,18 +109,25 @@ function formatDate(dateString) {
 }
 
 @media (max-width: 768px) {
-  .content-box {
-    padding: 1rem;
+  .blog-container {
+    padding: 1rem 0;
   }
   
   .header {
     flex-direction: column;
     align-items: flex-start;
     gap: 1rem;
+    padding: 0 1rem;
   }
   
   .header h1 {
     font-size: 1.5rem;
+  }
+  
+  .post-item {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    padding: 1rem;
   }
 }
 </style>

@@ -248,20 +248,18 @@ html, body {
   background: linear-gradient(135deg, #1a1a2e, #16213e);
   display: flex;
   justify-content: center;
-  align-items: flex-start; /* 修改为flex-start以允许垂直滚动 */
   color: white;
   position: relative;
   min-height: 100vh;
   width: 100%;
-  overflow-y: auto; /* 允许垂直滚动 */
 }
 
 .content {
   text-align: center;
   z-index: 10;
   padding: 2rem;
-  max-width: 90%;
-  pointer-events: auto; /* 允许内容区域的交互 */
+  max-width: 100%;
+  pointer-events: auto;
   width: 100%;
 }
 
