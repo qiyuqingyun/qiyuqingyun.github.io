@@ -8,12 +8,17 @@
     </div>
     <div v-else-if="post">
       <article>
-        <h1>{{ post.title }}</h1>
-        <p class="meta">
-          发布日期: {{ formatDate(post.meta?.date) }}
-        </p>
-        <div class="content">
+        <div class="post-header">
+          <h1>{{ post.title }}</h1>
+          <p class="meta">
+            发布日期: {{ formatDate(post.meta?.date) }}
+          </p>
+        </div>
+        <div class="post-content">
           <MarkdownRenderer :value="post" />
+        </div>
+        <div class="post-footer">
+          <NuxtLink to="/blog" class="back-link">← 返回博客列表</NuxtLink>
         </div>
       </article>
     </div>
@@ -202,5 +207,11 @@ function formatDate(dateString) {
 .post-content :deep(pre code) {
   background: none;
   padding: 0;
+}
+
+.post-footer {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid #233554;
 }
 </style>
