@@ -85,7 +85,7 @@ function formatDate(dateString) {
 
 <style scoped>
 .post-container {
-  max-width: 800px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 2rem;
 }

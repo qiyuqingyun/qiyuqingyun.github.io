@@ -27,7 +27,7 @@ defineProps({
   border-radius: 8px;
   padding: 2rem;
   width: 100%;
-  max-width: 800px;
+  max-width: 1200px; /* 增加最大宽度 */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
   text-align: left;
   backdrop-filter: blur(5px); /* 模糊背景效果 */
