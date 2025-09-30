@@ -14,11 +14,30 @@ export default {
         base: './content'
       }
     },
-    // Markdown配置
-    markdown: {
-      // 代码高亮主题
-      highlight: {
-        theme: 'github-dark'
+    // Markdown 配置
+    build: {
+      markdown: {
+        // 代码高亮配置 - 使用 Shiki
+        highlight: {
+          // 主题配置
+          theme: 'github-light',
+          // 预加载的语言
+          langs: [
+            'javascript',
+            'js', 
+            'typescript',
+            'ts',
+            'python',
+            'py',
+            'java',
+            'css',
+            'html',
+            'vue',
+            'json',
+            'bash',
+            'shell'
+          ]
+        }
       }
     }
   },

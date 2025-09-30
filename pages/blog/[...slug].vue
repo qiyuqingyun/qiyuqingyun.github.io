@@ -197,16 +197,21 @@ function formatDate(dateString) {
 }
 
 .post-content :deep(pre) {
-  background-color: #0a192f;
+  background-color: #ffffff;
   padding: 1rem;
   border-radius: 5px;
   overflow-x: auto;
   margin: 1.5rem 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
+/* 重置代码块内的 code 样式 */
 .post-content :deep(pre code) {
   background: none;
   padding: 0;
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  font-size: 0.9em;
+  line-height: 1.6;
 }
 
 .post-footer {

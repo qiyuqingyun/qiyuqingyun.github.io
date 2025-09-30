@@ -94,17 +94,23 @@ defineProps({
   color: #64ffda;
 }
 
+/* 代码块样式 */
 .markdown-content :deep(pre) {
-  background-color: rgba(17, 17, 17, 0.8);
+  background-color: #ffffff;
   padding: 1rem;
   border-radius: 5px;
   overflow-x: auto;
   margin: 1.5rem 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
+/* 重置代码块内的 code 样式 */
 .markdown-content :deep(pre code) {
   background: none;
   padding: 0;
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  font-size: 0.9em;
+  line-height: 1.6;
 }
 
 .markdown-content :deep(blockquote) {
