@@ -37,6 +37,19 @@ export default {
             'bash',
             'shell'
           ]
+        },
+        // Remark 插件配置
+        remarkPlugins: {
+          'remark-math': {}
+        },
+        // Rehype 插件配置
+        rehypePlugins: {
+          'rehype-katex': {
+            options: {
+              strict: false,
+              throwOnError: false
+            }
+          }
         }
       }
     }
@@ -69,6 +82,14 @@ export default {
       title: '我的博客',
       meta: [
         { name: 'description', content: '一个带有粒子效果的博客网站' }
+      ],
+      link: [
+        {
+          rel: 'stylesheet',
+          href: 'https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css',
+          integrity: 'sha384-GvrOXuhMATgEsSwCs4smul74iXGOixntILdUW9XmUC6+HX0sLNAK3q71HotJqlAn',
+          crossorigin: 'anonymous'
+        }
       ],
       htmlAttrs: {
         lang: 'zh-CN'
