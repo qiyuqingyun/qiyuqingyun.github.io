@@ -9,8 +9,11 @@
     "@nuxt/content": "^3.6.3",
     "@nuxtjs/pwa": "^3.3.5",
     "better-sqlite3": "^12.2.0",
+    "katex": "^0.16.22",
     "nitro": "^0.0.0",
-    "nuxt": "^3.17.6"
+    "nuxt": "^3.17.6",
+    "rehype-katex": "^7.0.1",
+    "remark-math": "^6.0.0"
   },
   "devDependencies": {
     "@nuxtjs/axios": "^5.13.6",
