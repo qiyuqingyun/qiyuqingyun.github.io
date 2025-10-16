@@ -86,8 +86,8 @@ export default {
       link: [
         {
           rel: 'icon',
-          type: 'image/png',
-          href: '/网页图标.png'
+          type: 'image/jpeg',
+          href: '/网页图标.jpeg'
         },
         {
           rel: 'stylesheet',
