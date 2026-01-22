@@ -35,7 +35,8 @@ export default {
             'vue',
             'json',
             'bash',
-            'shell'
+            'shell',
+            'cpp'
           ]
         },
         // Remark 插件配置
@@ -55,9 +56,9 @@ export default {
     }
   },
   
-  // Nitro配置 - 静态资源目录配置
+  // Nitro配置 - 静态资产目录配置
   nitro: {
-    compatibilityDate: '2025-07-04',
+    compatibilityDate: '2026-01-22',
     prerender: {
       routes: ['/markdown', '/about']
     }

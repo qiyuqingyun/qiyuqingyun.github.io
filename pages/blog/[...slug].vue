@@ -53,7 +53,7 @@ const { data: post, pending, error } = await useAsyncData(
         // 确保 p.stem 和 path 都存在且为字符串
         if (!p.stem || typeof p.stem !== 'string') return false
         if (!path || typeof path !== 'string') return false
-        return p.stem === path
+        return p.stem.toLowerCase() === path.toLowerCase()
       })
       
       console.log('Manual search result:', result) // 调试信息
