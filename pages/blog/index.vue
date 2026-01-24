@@ -29,6 +29,14 @@ const { data: posts, pending, error } = await useAsyncData('all-posts', async ()
   // 使用 queryCollection 查询 content 集合
   const result = await queryCollection('content').all()
   console.log('All posts data:', result) // 调试信息
+  
+  // 按日期降序排序（最新的在前）
+  result.sort((a, b) => {
+    const dateA = new Date(a.meta?.date || a.date || a.createdAt || '1970-01-01')
+    const dateB = new Date(b.meta?.date || b.date || b.createdAt || '1970-01-01')
+    return dateB - dateA // 降序排列
+  })
+  
   return result
 })
 
