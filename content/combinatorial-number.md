@@ -232,3 +232,5 @@ $$
 $$
 k^3 = 6\binom{k}{3} + 6\binom{k}{2} + \binom{k}{1}
 $$  
+**更高次的推导**：
+<iframe src="//player.bilibili.com/player.html?bvid=BV1GZRXYjEGK&page=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width: 100%; height: 500px;"> </iframe>
